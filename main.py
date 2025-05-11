@@ -9,7 +9,7 @@ from telegram.ext import (
 )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text('.')
+    await update.message.reply_text('Привет, я могу преобразовать код, чтобы он отображался красиво в сообщении телеграм.')
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_message = update.message.text
@@ -18,7 +18,6 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main() -> None:
     application = Application.builder().token(TOKEN).build()
-
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))  # filters.TEXT вместо Filters.text
 
